@@ -24,8 +24,9 @@ class PostsController extends Controller
             'image' => ['required', 'image'],
         ]);
 
-        auth()->user()->posts()->create($data);
+        auth()->user()->posts()->create($data); // create() is a method
 
         dd(request()->all());
     }
+
 }
