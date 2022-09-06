@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class)->orderBy('created_at', 'DESC' );
     }
 
     public function profile(): \Illuminate\Database\Eloquent\Relations\HasOne

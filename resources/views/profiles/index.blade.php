@@ -11,11 +11,11 @@
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <h1>{{ $user->username }}</h1>
-                <a href="#">Add New Post</a>
+                <a href="/p/create">Add New Post</a>
             </div>
 
             <div class="d-flex">
-                <div class="pe-5"><strong>49</strong> posts</div>
+                <div class="pe-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div class="pe-5"><strong>30</strong> followers</div>
                 <div class="pe-5"><strong>38</strong> following</div>
             </div>
@@ -25,19 +25,15 @@
             <div><a href="">{{ $user->profile->url }}</a></div>
         </div>
     </div>
-    <!-- Profile sction ends -->
+    <!-- Profile section ends -->
 
     <!-- Gallery section starts -->
     <div class="row pt-5">
-        <div class="col-4">
-            <img src="/images/aswad1.jpg" class="w-100" alt="">
+        @foreach($user->posts as $post)
+        <div class="col-4 pb-4">
+            <img src="/storage/{{ $post->image }}" class="w-100" alt="">
         </div>
-        <div class="col-4">
-            <img src="/images/aswad2.jpg" class="w-100" alt="">
-        </div>
-        <div class="col-4">
-            <img src="/images/aswad3.jpg" class="w-100" alt="">
-        </div>
+        @endforeach
     </div>
     <!-- Gallery section ends -->
 </div>
