@@ -43,4 +43,9 @@ class PostsController extends Controller
 
         // dd(request()->all());
     }
+
+    public function show($post)
+    {
+
+    }
 }
