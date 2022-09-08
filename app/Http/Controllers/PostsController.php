@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use Intervention\Image\Facades\Image;
 use Image;
 
 class PostsController extends Controller
@@ -44,8 +43,10 @@ class PostsController extends Controller
         // dd(request()->all());
     }
 
-    public function show($post)
+    public function show(\App\Models\Post $post)
     {
+        return view('posts/show', compact('post')); //another way of sending variable to view
 
+        // dd($post);
     }
 }
