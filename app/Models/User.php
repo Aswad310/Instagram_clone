@@ -44,6 +44,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Eloquent Model Event, whenever new profile created
+    public static function boot()
+    {
+        parent::boot();
+
+        self::created(function($user){
+           $user->profile()->create([
+                'title' =>  $user->username,
+               ]
+           );
+        });
+    }
+
     public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Post::class)->orderBy('created_at', 'DESC' );
