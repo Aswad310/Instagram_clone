@@ -33,6 +33,9 @@ class ProfilesController extends Controller
 
         if(\request('image'))
         {
+            // REMOVE Previous Image
+            @unlink(public_path('/storage/'.$user->profile->image));
+
             $imagePath = \request('image')->store('profiles', 'public');
             //  intervention/image
             $image = Image::make(public_path('storage/'.$imagePath))->fit(1000, 1000);

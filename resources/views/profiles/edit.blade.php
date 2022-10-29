@@ -64,6 +64,9 @@
 
                 <div class="row">
                     <label for="image" class="col-md-4 col-form-label">Profile Image</label>
+                    <div class="col-3 p-5">
+                        <img src="/storage/{{$user->profile->image}}" class="rounded-circle w-100">
+                    </div>
                     <input type="file" class="form-control" id="image" name="image">
 
                     @error('image')
